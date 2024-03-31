@@ -4,12 +4,22 @@
   "description": "Back end of Book show application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "node ./dist/index.js",
+    "dev": "nodemon ./dist/index.js"
   },
   "repository": {
     "type": "git",
     "url": "BookShow"
   },
   "author": "Kalanithi",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "nodemon": "^3.1.0",
+    "typescript": "^5.4.3"
+  }
 }
