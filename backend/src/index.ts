@@ -1,7 +1,7 @@
 import express from "express"
 import dotenv from 'dotenv';
 dotenv.config();
-import connectDb from "./db/mongodb";
+import connectDb from "./db/mongo/mongodb";
 import router from "./router";
 
 const app = express()
