@@ -55,7 +55,6 @@ export class MongoAuthProvider implements AuthProvider {
 		const hash = await bcrypt.hash(password, 12);
 
 		try {
-			console.log(userId, password);
 			const New = await User.create({ userId: userId, password: hash });
 			return {
 				statusCode: 201,

@@ -8,7 +8,7 @@ import router from "./router";
 const app = express();
 app.use(bodyParser.json());
 
-connectDb().catch(console.dir);
+connectDb("main").catch(console.dir);
 
 app.get('/', (req, res) => {
 	console.log(req.body)
