@@ -1,10 +1,12 @@
 import express from "express"
 import dotenv from 'dotenv';
+import bodyParser from "body-parser";
 dotenv.config();
 import connectDb from "./db/mongo/mongodb";
 import router from "./router";
 
-const app = express()
+const app = express();
+app.use(bodyParser.json());
 
 connectDb().catch(console.dir);
 

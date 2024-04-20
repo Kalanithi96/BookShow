@@ -1,6 +1,11 @@
+export type AuthResponse = {
+	statusCode : number,
+	message: string
+}
+
 export interface AuthProvider {
-	login(userId: String, password: String) : void
-	register(userId: String, password: String) : void
+	login(userId: string, password: string) : Promise<AuthResponse>
+	register(userId: string, password: string) : Promise<AuthResponse>
 }
 
 export class AuthService {
@@ -10,12 +15,12 @@ export class AuthService {
 		this.provider = provider;
 	}
 
-	login(userId : String, password : String) : void {
-		this.provider.login(userId, password)
+	login(userId : string, password : string) : Promise<AuthResponse> {
+		return this.provider.login(userId, password)
 	}
 
-	register(userId : String, password : String) : void {
-		this.provider.register(userId, password)
+	register(userId : string, password : string) : Promise<AuthResponse> {
+		return this.provider.register(userId, password)
 	}
 
 }
