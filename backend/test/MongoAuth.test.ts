@@ -7,13 +7,14 @@ import connectDb from "./../src/db/mongo/mongodb";
 import {AuthService} from "./../src/auth/authService";
 import {MongoAuthProvider} from "./../src/auth/providers/mongo/MongoAuthProvider";
 
-describe('Auth Service with Mongo Auth Provier Tests', () => {
+describe('Auth Service with Mongo Auth Provider Tests', () => {
   beforeAll(async () => {
     await connectDb('test')
 	await User.deleteMany({});
   })
 
   afterAll(async () => {
+	await User.deleteMany({})
 	await mongoose.connection.close();
   });
 

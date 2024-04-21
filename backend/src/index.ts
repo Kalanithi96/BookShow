@@ -5,10 +5,10 @@ dotenv.config();
 import connectDb from "./db/mongo/mongodb";
 import router from "./router";
 
-const app = express();
+export const app = express();
 app.use(bodyParser.json());
 
-connectDb("main").catch(console.dir);
+connectDb(process.env.ENV).catch(console.dir);
 
 app.get('/', (req, res) => {
 	console.log(req.body)
@@ -17,6 +17,6 @@ app.get('/', (req, res) => {
 
 app.use("/api/v1", router);
 
-app.listen(3000, ()=>{
+export const server = app.listen(3000, ()=>{
 	console.log("Connected to Port 3000");
 })
