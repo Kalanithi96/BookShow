@@ -1,6 +1,7 @@
 import express from "express";
 import {AuthService} from "./auth/authService"
 import {MongoAuthProvider} from "./auth/providers/mongo/MongoAuthProvider"
+import {createNewMovie, getAllFilteredMovies, getAllMovies} from "./db/mongo/controllers/movieController"
 
 const authService = new AuthService(new MongoAuthProvider())
 
@@ -25,5 +26,10 @@ router.post('/auth/login', async (req,res) => {
 			message: response.message
 		})
 })
+
+router
+	.post('/db/movie', createNewMovie)
+	.get('/db/movie', getAllMovies)
+	.post('/db/movie/filter', getAllFilteredMovies);
 
 export default router;
