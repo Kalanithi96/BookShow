@@ -44,8 +44,6 @@ export const createNewMovie = async (req: Request, res: Response) => {
 	
 	const reqBody = req.body;
 
-	console.log(reqBody);
-
 	try{
 		const newMovie = await movie.create(reqBody)
 		res
