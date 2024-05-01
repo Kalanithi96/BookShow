@@ -52,9 +52,9 @@ export class MongoAuthProvider implements AuthProvider {
 
 	async register(userId : string, password : string) : Promise<AuthResponse> {
 	
-		const hash = await bcrypt.hash(password, 12);
-
 		try {
+
+			const hash = await bcrypt.hash(password, 12);
 			const New = await User.create({ userId: userId, password: hash });
 			return {
 				statusCode: 201,
